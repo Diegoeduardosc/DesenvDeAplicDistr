@@ -1,50 +1,80 @@
-# Welcome to your Expo app 👋
+# Receitas da Tia Elaine - Relatório de Construção do Software
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Pontifícia Universidade Católica de Minas Gerais  
+**Disciplina: Desenvolvimento de Aplicações Distribuídas**  
 
-## Get started
+### Trabalho Prático
 
-1. Install dependencies
+**Integrantes:**  
+- Diego Eduardo  
+- Hudson Cordeiro  
+- Luis Henrique  
+- Pedro Lucas  
+- Thainara Gabrielle  
 
-   ```bash
-   npm install
-   ```
+**Belo Horizonte - 2024**
 
-2. Start the app
+---
 
-   ```bash
-    npx expo start
-   ```
+## Introdução
+O projeto **Receitas da Tia Elaine** é um aplicativo móvel desenvolvido em **React Native**, com foco no gerenciamento de receitas culinárias. Este relatório documenta a estrutura do sistema, as dependências, fluxos de execução e sugestões de aprimoramento. Ele foi elaborado com o objetivo de auxiliar na manutenção e evolução do software, servindo como referência para desenvolvedores e gerentes de projeto.
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Arquitetura do Sistema
+A arquitetura do projeto segue um padrão modular, típico de aplicações em React Native, permitindo escalabilidade e manutenção fácil. A estrutura principal é organizada da seguinte forma:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+| Diretório         | Descrição                                                                           |
+|-------------------|-----------------------------------------------------------------------------------|
+| `/android`        | Arquivos e configurações específicas para a plataforma Android.                   |
+| `/ios`            | Arquivos e configurações específicas para a plataforma iOS.                       |
+| `/node_modules`   | Pacotes de dependências instalados via npm ou yarn.                                |
+| `/src`            | Código-fonte principal do aplicativo.                                              |
+| `/src/components` | Componentes reutilizáveis que formam as interfaces do usuário.                     |
+| `/src/screens`    | Telas principais, representando seções do aplicativo.                              |
+| `/src/services`   | Lógica de negócios, integração com APIs externas e gerenciamento de dados.         |
+| `/src/assets`     | Recursos estáticos, como imagens e fontes.                                         |
+| `package.json`    | Metadados do projeto e lista de dependências.                                      |
+| `README.md`       | Documentação introdutória do projeto.                                              |
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## Fluxo de Dados e Navegação
+O aplicativo utiliza os seguintes padrões para navegação e organização:
+
+1. **Navegação entre Telas:**
+   - Ferramenta utilizada: `react-navigation`.
+   - Tipos de navegação: Tab Navigation (abas) e Stack Navigation (pilha).
+
+2. **Gerenciamento de Estado:**
+   - Simples: Context API.  
+   - Complexo: Implementação com Redux ou Recoil.
+
+3. **Ciclo de Vida dos Componentes:**
+   - Componentes reutilizáveis para gerenciamento de eventos (ex.: montagem e desmontagem).
+   - Sugestão: Adicionar hooks como `useEffect` para gerenciar chamadas assíncronas.
+
+---
+
+## Instalação e Configuração
+
+### Pré-requisitos
+Certifique-se de que as seguintes ferramentas estão instaladas:
+- **Node.js**: Ambiente de execução JavaScript. [Instalar aqui](https://nodejs.org).  
+- **npm** ou **yarn**: Gerenciador de pacotes.
+
+### Passos de Configuração
+Execute os comandos abaixo:
 
 ```bash
-npm run reset-project
-```
+# Instale as dependências do projeto
+npm install
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+# Inicie o servidor de desenvolvimento
+npm start
 
-## Learn more
+# Para Android (emulador ou dispositivo conectado)
+npx react-native run-android
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# Para iOS (apenas em macOS com Xcode configurado)
+npx react-native run-ios
